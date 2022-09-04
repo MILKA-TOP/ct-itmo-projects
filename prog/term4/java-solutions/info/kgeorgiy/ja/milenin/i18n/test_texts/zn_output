@@ -1,0 +1,36 @@
+Analyzed file java-solutions/info/kgeorgiy/ja/milenin/i18n/test_texts/zn_input
+Summary statistics
+	Number of sentences: 3.
+	Number of words: 11.
+	Number of numbers: 0.
+	Number of currencies: 0.
+	Number of dates: 0.
+Offer statistics
+	Number of sentences: 3 (3 different).
+	Minimum offer: "該文本是中文的特殊文本，出於說明目的，是辛勤工作的一部分。 ".
+	Maximum offer: "這是第三句話。".
+	Minimum sentence length: 7 ("這是第三句話。").
+	Maximum sentence length: 30 ("該文本是中文的特殊文本，出於說明目的，是辛勤工作的一部分。 ").
+	Average sentence length: 15.
+Word statistics
+	Number of words: 11 (8 different).
+	Minimum word: "。".
+	Maximum word: "該文本是中文的特殊文本".
+	Minimum word length: 1 ("，").
+	Maximum word length: 11 ("該文本是中文的特殊文本").
+	Average word length: 4.
+Statistics by numbers
+	Number of numbers: 0 (0 different).
+	Minimum number: _.
+	Maximum number: _.
+	Average number: 0.
+Statistics on amounts of money
+	Number of currencies: 0 (0 different).
+	Minimum amount: _.
+	Maximum amount: _.
+	Average amount: ¤0.00.
+Date statistics
+	Number of dates: 0 (0 different).
+	Minimum amount: _.
+	Maximum amount: _.
+	Average amount: _.

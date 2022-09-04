@@ -1,0 +1,98 @@
+Анализируемый файл input.txt
+Сводная статистика
+	Число предложений: 77.
+	Число слов: 14306.
+	Число чисел: 556.
+	Число сумм: 0.
+	Число дат: 0.
+Статистика по предложениям
+	Число предложений: 77 (73 различных).
+	Минимальное предложение: ".".
+	Максимальное предложение: "Yost and Christopher Markus & Stephen McFeely[41]
+Captain America: The Winter Soldier April 4, 2014   Anthony and Joe Russo[42]   Christopher Markus & Stephen McFeely[43]
+Guardians of the Galaxy August 1, 2014  James Gunn[44]  James Gunn and Nicole Perlman[45]
+Avengers: Age of Ultron May 1, 2015 Joss Whedon[46]
+Ant-Man July 17, 2015   Peyton Reed[47] Edgar Wright & Joe Cornish and Adam McKay & Paul Rudd[48]
+Phase Three[2]
+Captain America: Civil War  May 6, 2016 Anthony and Joe Russo[49]   Christopher Markus & Stephen McFeely[49]    Kevin Feige
+Doctor Strange  November 4, 2016    Scott Derrickson[50]    Jon Spaihts and Scott Derrickson & C. ".
+	Минимальная длина предложение: 1 (".").
+	Максимальная длина предложение: 5309 ("Yost[55][56]   Kevin Feige
+Black Panther   February 16, 2018   Ryan Coogler[57]    Ryan Coogler & Joe Robert Cole[58][59]
+Avengers: Infinity War  April 27, 2018  Anthony and Joe Russo[60]   Christopher Markus & Stephen McFeely[61]
+Ant-Man and the Wasp    July 6, 2018    Peyton Reed[62] Chris McKenna & Erik Sommers and
+Paul Rudd & Andrew Barrer & Gabriel Ferrari[63] Kevin Feige and
+Stephen Broussard
+Captain Marvel  March 8, 2019   Anna Boden and Ryan Fleck[64]   Anna Boden & Ryan Fleck & Geneva Robertson-Dworet[65]   Kevin Feige
+Avengers: Endgame   April 26, 2019  Anthony and Joe Russo[60]   Christopher Markus & Stephen McFeely[61]
+Spider-Man: Far From Home   July 2, 2019    Jon Watts[66]   Chris McKenna & Erik Sommers[67]    Kevin Feige
+and Amy Pascal
+Phase Four
+Main article: Marvel Cinematic Universe: Phase Four
+Phase Four also includes multiple series and two specials streaming on Disney+.[3][4]
+
+Film    U.S. release date   Director(s) Screenwriter(s) Producer(s) Status
+Black Widow July 9, 2021[b] Cate Shortland[69]  Eric Pearson[70]    Kevin Feige Released
+Shang-Chi and the Legend of the Ten Rings   September 3, 2021   Destin Daniel Cretton[71]   Dave Callaham & Destin Daniel Cretton & Andrew Lanham[72]   Kevin Feige and
+Jonathan Schwartz
+Eternals    November 5, 2021    Chloé Zhao[73]  Chloé Zhao and Chloé Zhao & Patrick Burleigh
+and Ryan Firpo & Kaz Firpo[74][75][c]   Kevin Feige
+and Nate Moore
+Spider-Man: No Way Home December 17, 2021   Jon Watts[76]   Chris McKenna & Erik Sommers[77]    Kevin Feige
+and Amy Pascal
+Doctor Strange in the Multiverse of Madness May 6, 2022 Sam Raimi[78]   Michael Waldron[79] Kevin Feige
+Thor: Love and Thunder  July 8, 2022[80]    Taika Waititi[81][82]   Kevin Feige and
+Brad Winderbaum Post-production
+Black Panther: Wakanda Forever  November 11, 2022[80]   Ryan Coogler[83]    Ryan Coogler & Joe Robert Cole[83][84]  Kevin Feige
+Ant-Man and the Wasp: Quantumania   February 17, 2023[85]   Peyton Reed[86] Jeff Loveness[87]
+Guardians of the Galaxy Vol. 3  May 5, 2023[88] James Gunn[89]
+The Marvels July 28, 2023[85]   Nia DaCosta[90] Megan McDonnell[91]
+Fantastic Four[92]  TBA TBA TBA In development
+Future
+Film    U.S. release date   Director    Screenwriter(s) Producer(s) Status
+Blade   TBA Bassam Tariq[93]    Stacy Osei-Kuffour[94]  Kevin Feige Pre-production
+Untitled Deadpool film  TBA Shawn Levy[95]  Rhett Reese & Paul Wernick and
+Wendy Molyneux & Lizzie Molyneux-Logelin[95]    Kevin Feige and
+Ryan Reynolds   In development
+Untitled Captain America sequel TBA TBA Malcolm Spellman & Dalan Musson[96] Kevin Feige
+Untitled Shang-Chi and the Legend of the Ten Rings sequel   TBA Destin Daniel Cretton[97]
+Untitled mutant-centered film[98]   TBA TBA TBA
+At any given time, Marvel Studios has future films planned five to six years out from what they have announced.[99] By April 2014, additional storylines were planned through 2028,[100] with MCU films through 2032 being planned by April 2022.[101] Disney has scheduled additional release dates for unannounced Marvel Studios films on November 3, 2023,[80] as well as February 16, May 3, July 26, and November 8, 2024.[102]
+
+Blade
+See also: Blade (character) § Film
+By May 2013, Marvel Studios had a working script for a new Blade film after regaining the rights following New Line Cinema's prior film series.[103][104] In February 2019, Mahershala Ali approached Marvel Studios about starring in a new film after previously portraying Cornell "Cottonmouth" Stokes in Marvel Television's Luke Cage.[105] Kevin Feige officially announced the film with Ali in the title role at the July 2019 San Diego Comic-Con;[105][21] Ali first had an uncredited voice cameo as Blade in Eternals (2021).[106] In February 2021, Stacy Osei-Kuffour was hired to write the film.[94] Bassam Tariq had been hired to direct by September 2021.[93][107] Filming is expected to begin in July 2022,[108] at Trilith Studios in Atlanta, Georgia.[109][110] Blade will be released in a future MCU phase.[111]
+
+Untitled Deadpool film
+See also: Deadpool 2 § Future
+After the acquisition of 21st Century Fox by Disney was announced in December 2017, Disney CEO Bob Iger said Ryan Reynolds would reprise his role as Wade Wilson / Deadpool from 20th Century Fox's R-rated X-Men films Deadpool (2016) and Deadpool 2 (2018) in the PG-13 rated MCU.[112][113] By December 2019, Reynolds confirmed a third Deadpool film was in development at Marvel Studios,[114] with Wendy Molyneux and Lizzie Molyneux-Logelin writing the film by November 2020,[115] when Reynolds' involvement and the film's R-rating were confirmed.[115][116] In January 2021, Feige confirmed the film's MCU setting.[116] In March 2022, Rhett Reese and Paul Wernick were hired to return from the first two films to rewrite the screenplay, while Shawn Levy was revealed to be directing.[95] Reynolds' production company Maximum Effort co-produces the film.[117] Filming is expected to begin after 2022.[118]
+
+Untitled Captain America sequel
+See also: Captain America: Civil War § The Falcon and the Winter Soldier and fourth film, and The Falcon and the Winter Soldier § Future
+By April 2021, a fourth Captain America film was in development, with a script co-written by Malcolm Spellman and Dalan Musson. ").
+	Средняя длина предложение: 577.56.
+Статистика по словам
+	Число слов: 14306 (3378 различных).
+	Минимальное слово: "-".
+	Максимальное слово: "yW".
+	Минимальная длина слова: 1 (",").
+	Максимальная длина слова: 16 ("te2008–presentCo").
+	Средняя длина слова: 2.56.
+Статистика по числам
+	Число чисел: 556 (59 различных).
+	Минимальное число: 2,017.
+	Максимальное число: 8.
+	Среднее число: 183.14.
+Статистика по суммам денег
+	Число сумм: 0 (0 различных).
+	Минимальная сумма: _.
+	Максимальная сумма: _.
+	Средняя сумма: ¤ 0.00.
+Статистика по датам
+	Число дат: 0 (0 различных).
+	Минимальная сумма: _.
+	Максимальная сумма: _.
+	Средняя сумма: _.
+
+
+Process finished with exit code 0

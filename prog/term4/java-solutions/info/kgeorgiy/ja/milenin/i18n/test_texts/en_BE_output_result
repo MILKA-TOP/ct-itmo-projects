@@ -1,0 +1,36 @@
+Analyzed file java-solutions/info/kgeorgiy/ja/milenin/i18n/test_texts/en_BE_input
+Summary statistics
+	Number of sentences: 3.
+	Number of words: 29.
+	Number of numbers: 0.
+	Number of currencies: 0.
+	Number of dates: 0.
+Offer statistics
+	Number of sentences: 3 (3 different).
+	Minimum offer: "এই টেক্সট কঠিন কাজ অংশ বরাদ্দ যে প্রকট উদ্দেশ্যে কোরিয়ান একটি বিশেষ টেক্সট, হয়. ".
+	Maximum offer: "এবং এই তৃতীয় বাক্য.".
+	Minimum sentence length: 19 ("এই দ্বিতীয় বাক্য. ").
+	Maximum sentence length: 82 ("এই টেক্সট কঠিন কাজ অংশ বরাদ্দ যে প্রকট উদ্দেশ্যে কোরিয়ান একটি বিশেষ টেক্সট, হয়. ").
+	Average sentence length: 40.33.
+Word statistics
+	Number of words: 29 (25 different).
+	Minimum word: ",".
+	Maximum word: "্".
+	Minimum word length: 1 (",").
+	Maximum word length: 9 ("উদ্দেশ্যে").
+	Average word length: 3.41.
+Statistics by numbers
+	Number of numbers: 0 (0 different).
+	Minimum number: _.
+	Maximum number: _.
+	Average number: 0.
+Statistics on amounts of money
+	Number of currencies: 0 (0 different).
+	Minimum amount: _.
+	Maximum amount: _.
+	Average amount: ¤ 0.00.
+Date statistics
+	Number of dates: 0 (0 different).
+	Minimum amount: _.
+	Maximum amount: _.
+	Average amount: _.
