@@ -1,0 +1,65 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> go_find_right 0 ^
+s 1 -> go_find_left 1 ^
+
+go_find_left 0- -> start_check_0_go_left 0_ < 
+go_find_left 1- -> start_check_1_go_left 1_ <
+
+
+go_find_left 0 -> go_find_right_bord 0+ >
+go_find_left 1 -> go_find_right_bord 1+ >
+
+go_find_right_bord _ -> go_find_right _ < 
+go_find_right_bord 0- -> go_find_right 0- <
+go_find_right_bord 1- -> go_find_right 1- <
+go_find_right_bord 0 -> go_find_right_bord 0 >
+go_find_right_bord 1 -> go_find_right_bord 1 >
+
+go_find_right 0 -> go_find_left_bord 0- <
+go_find_right 1 -> go_find_left_bord 1- <
+go_find_right 0+ -> rj 0+ ^
+go_find_right 1+ -> rj 1+ ^ 
+
+go_find_left_bord 0+ -> go_find_left 0+ >
+go_find_left_bord 1+ -> go_find_left 1+ >
+go_find_left_bord 0 -> go_find_left_bord 0 <
+go_find_left_bord 1 -> go_find_left_bord 1 <
+
+start_check_0_go_left 0+ -> start_check_0_go_left 0+ <
+start_check_0_go_left 1+ -> start_check_0_go_left 1+ <
+start_check_0_go_left 0_ -> start_check_0_go_left 0_ <
+start_check_0_go_left 1_ -> start_check_0_go_left 1_ <
+start_check_0_go_left _ -> start_check_0_take_left _ >
+start_check_0_go_left 0 -> start_check_0_take_left 0 >
+start_check_0_go_left 1 -> start_check_0_take_left 1 >
+start_check_0_take_left 1+ -> rj 1 ^
+start_check_0_take_left 0+ -> find_next_minus 0 >
+
+start_check_1_go_left 0+ -> start_check_1_go_left 0+ <
+start_check_1_go_left 1+ -> start_check_1_go_left 1+ <
+start_check_1_go_left 0_ -> start_check_1_go_left 0_ <
+start_check_1_go_left 1_ -> start_check_1_go_left 1_ <
+start_check_1_go_left _ -> start_check_1_take_left _ >
+start_check_1_go_left 0 -> start_check_1_take_left 0 >
+start_check_1_go_left 1 -> start_check_1_take_left 1 >
+start_check_1_take_left 1+ -> find_next_minus 1 >
+start_check_1_take_left 0+ -> rj 1 ^
+
+
+
+find_next_minus 1+ -> find_next_minus 1+ >
+find_next_minus 0+ -> find_next_minus 0+ >
+find_next_minus 0 -> find_next_minus 0 >
+find_next_minus 1 -> find_next_minus 1 >
+find_next_minus 1_ -> find_next_minus 1_ >
+find_next_minus 0_ -> find_next_minus 0_ >
+find_next_minus 1- -> start_check_1_go_left 1_ <
+find_next_minus 0- -> start_check_0_go_left 0_ <
+
+find_next_minus _ -> ac _ ^
+
+
+s <спевра_мы_находим_середину,_помечая_значения_+_и_-._Здесь_сразу_проверяется_то,_что_число_чисел_четное_(в_случае_если_при_переходе_слева_направо_мы_встречаем_число_со_знаком_-,_то_количество_чисел_четное_и_можно_продолжить_нашу_проверку)._Далее_каждое_отрицательное_значение_мы_помечаем_как_проверенное_символом_,_,_после_чего_входим_в_состояние_проверки_соответствующего_числа._если_программа_дошла_до_конца_всего_числа,_то_число_имеет_тандемный_повтор._> -> s // ^

@@ -1,0 +1,45 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 > 
+s + -> find_very_right + >
+find_very_right 0 -> find_very_right 0 > 
+find_very_right 1 -> find_very_right 1 > 
+find_very_right 0+ -> find_very_right 0+ >
+find_very_right 1+ -> find_very_right 1+ >
+find_very_right + -> find_very_right + > 
+find_very_right _ -> take_val _ <
+
+take_val 0 -> plus_zero_before_plus _ <
+plus_zero_before_plus 0 -> plus_zero_before_plus 0 <
+plus_zero_before_plus 1 -> plus_zero_before_plus 1 <
+plus_zero_before_plus + -> plus_zero + <
+plus_zero 1+ -> plus_zero 1+ <
+plus_zero 0+ -> plus_zero 0+ <
+plus_zero 0 -> find_very_right 0+ >
+plus_zero 1 -> find_very_right 1+ >
+plus_zero _ -> find_very_right 0+ >
+
+take_val 1 -> plus_one_before_plus _ <
+plus_one_before_plus 0 -> plus_one_before_plus 0 <
+plus_one_before_plus 1 -> plus_one_before_plus 1 <
+plus_one_before_plus + -> plus_one + <
+plus_one 1+ -> plus_one 1+ <
+plus_one 0+ -> plus_one 0+ <
+plus_one 0 -> find_very_right 1+ >
+plus_one 1 -> go_left_fix  0+ <
+plus_one _ -> find_very_right 1+ >
+
+take_val + -> go_fix_from_plus _ <
+go_fix_from_plus 0+ -> go_fix_from_plus 0 <
+go_fix_from_plus 1+ -> go_fix_from_plus 1 <
+go_fix_from_plus 0 -> go_fix_from_plus 0 <
+go_fix_from_plus 1 -> go_fix_from_plus 1 <
+go_fix_from_plus _ -> ac _ >
+
+go_left_fix 0 -> find_very_right 1 >
+go_left_fix 1 -> go_left_fix 0 <
+go_left_fix _ -> find_very_right 1 >
+s <итак,_тут_мы_удаляем_каждый_раз_символ_из_второго_числа_и_занимаемся_его_прибавлением_влево._Как_только_нашли_символ_левого_числа_без_пометки_+,_то_прибавляем_число,_заменяя_его_на_соответствующее_с_пометкой._При_этом_если_складываем_две_единицы,_то_исправляем_все_значения_числа_слева,_а_потом_снова_отправляемся_вправо_на_поиск_крайней_цифры_второго_числа_> ->  s // ^

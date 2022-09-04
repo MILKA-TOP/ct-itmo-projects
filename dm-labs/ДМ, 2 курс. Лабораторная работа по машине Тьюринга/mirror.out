@@ -1,0 +1,25 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 >
+s _ -> go_left _ <
+go_left 0 -> go_right_0 0_ > 
+go_right_0 0 -> go_right_0 0 >
+go_right_0 1 -> go_right_0 1 >
+go_right_0 _ -> go_find_temp 0 <
+go_find_temp 0 -> go_find_temp 0 <
+go_find_temp 1 -> go_find_temp 1 <
+go_find_temp 0_ -> go_left 0 <
+go_find_temp 1_ -> go_left 1 <
+go_left 1 -> go_right_1 1_ > 
+go_right_1 0 -> go_right_1 0 >
+go_right_1 1 -> go_right_1 1 >
+go_right_1 _ -> go_find_temp 1 <
+
+go_left _ -> go_right_final _ > 
+go_right_final 0 -> ac 0 ^
+go_right_final 1 -> ac 1 ^
+
+s <Сперва_мы_идем_сильно_вправо._Потом,_дойдя_до_конца,_мы_отправляемся_влево_до_первого_символа_и_отмечаем_его_временным_символом_и_идем_снова_сильно_вправо_и_отмечаем_его._Потом,_отметив_его,_идем_влево_до_временного_символа,_сдвигаем_каретку_на_единичку_влево_и_так,_пока_каретка_не_окажется_слева_в_пустоте.> -> s // ^

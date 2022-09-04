@@ -1,0 +1,37 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s _ -> check _ ^
+s ( -> check ( ^
+s ) -> check ) ^
+
+check ( -> add_end (+ > 
+check ) -> remove_end )+ >
+
+add_end ( -> add_end ( >
+add_end 1 -> add_end 1 >
+add_end ) -> add_end ) >
+remove_end ( -> remove_end ( >
+remove_end 1 -> remove_end 1 >
+remove_end ) -> remove_end ) >
+add_end _ -> go_left 1 <
+remove_end _ -> make_remove _ <
+
+make_remove ) -> rj _ ^
+make_remove ( -> rj _ ^
+make_remove (+ -> rj _ ^
+make_remove )+ -> rj _ ^
+make_remove 1 -> go_left _ <
+
+go_left ( -> go_left ( <
+go_left ) -> go_left ) <
+go_left 1 -> go_left 1 <
+go_left (+ -> check (+ >
+go_left )+ -> check )+ >
+
+check _ -> ac _ ^
+check 1 -> rj _ ^
+
+s <устраиваем_своеобразный_стек_открытых_скобок_в_конце._Проверенную_скобку_помечаем_плюсом._Если_она_открывающая,_то_в_конец_добавляем_1,_в_противном_случае_убираем._Если_при_проверке_всех_скобок_остались_единицы,_то_выводим_reject> -> s // ^

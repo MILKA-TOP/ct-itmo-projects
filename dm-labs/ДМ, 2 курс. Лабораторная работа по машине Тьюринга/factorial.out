@@ -1,0 +1,254 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> draw_barrier 0 <
+s 1 -> draw_barrier 1 <
+draw_barrier _ -> write_mult ||| >
+
+
+write_mult 0 -> write_mult 0 >
+write_mult 1 -> write_mult 1 >
+write_mult * -> write_mult *| >
+write_mult _ -> copy_left * <
+
+copy_left 0 -> copy_left 0 <
+copy_left 1 -> copy_left 1 <
+copy_left * -> copy_left * <
+copy_left ||| -> take_right ||| >
+copy_left *| -> take_right *| >
+copy_left 0+ -> take_right 0+ >
+copy_left 1+ -> take_right 1+ >
+
+take_right 0 -> print_0 0+ >
+take_right 1 -> print_1 1+ >
+take_right * -> clear * <
+
+print_0 0 -> print_0 0 >
+print_0 1 -> print_0 1 >
+print_0 * -> print_0 * >
+print_0 _ -> copy_left 0 <
+print_1 0 -> print_1 0 >
+print_1 1 -> print_1 1 >
+print_1 * -> print_1 * >
+print_1 _ -> copy_left 1 <
+
+clear 0+ -> clear 0 <
+clear 1+ -> clear 1 <
+clear ||| -> find_right_empty ||| >
+clear *| -> find_right_empty *| >
+
+find_right_empty 0 -> find_right_empty 0 >
+find_right_empty 1 -> find_right_empty 1 >
+find_right_empty * -> find_right_empty *| >
+find_right_empty _ -> make_minus _ <
+
+make_minus 0 -> make_minus 1 <
+make_minus 1 -> write_mult 0 >
+make_minus *| -> clear_right *| >
+
+clear_right 1 -> clear_right _ >
+clear_right 0 -> clear_right _ >
+clear_right _ -> find_barrier _ <
+
+find_barrier _ -> find_barrier _ <
+find_barrier *| -> clear_left_zero _ <
+clear_left_zero 0 -> clear_left_zero _ <
+clear_left_zero 1 -> clear_left_zero _ <
+clear_left_zero *| -> change_multi = <
+
+change_multi 0 -> change_multi 0 <
+change_multi 1 -> change_multi 1 <
+change_multi *| -> go_to_eq_and_start_clac * >
+go_to_eq_and_start_clac 0 -> go_to_eq_and_start_clac 0 >
+go_to_eq_and_start_clac 1 -> go_to_eq_and_start_clac 1 >
+go_to_eq_and_start_clac = -> go_left_take_numb = <
+
+go_left_take_numb 0 -> go_right_draw_0 0+ >
+go_left_take_numb 1 -> go_right_draw_0 1+ >
+go_left_take_numb * -> go_left_take_numb * <
+go_left_take_numb 0+ -> go_left_take_numb 0+ <
+go_left_take_numb 1+ -> go_left_take_numb 1+ <
+go_left_take_numb *| -> clear_right_before_eq *| >
+go_left_take_numb ||| -> clear_right_before_eq ||| >
+
+go_right_draw_0 = -> go_right_draw_0 = >
+go_right_draw_0 0 -> go_right_draw_0 0 >
+go_right_draw_0 0+ -> go_right_draw_0 0+ >
+go_right_draw_0 1+ -> go_right_draw_0 1+ >
+go_right_draw_0 * -> go_right_draw_0 * >
+go_right_draw_0 _ -> go_to_eq 0 <
+
+go_to_eq 0 -> go_to_eq 0 <
+go_to_eq 1 -> go_to_eq 1 <
+go_to_eq = -> go_left_take_numb = <
+
+clear_right_before_eq 1+ -> clear_right_before_eq 1 >
+clear_right_before_eq 0+ -> clear_right_before_eq 0 >
+clear_right_before_eq * -> clear_right_before_eq * >
+clear_right_before_eq = -> start_count = ^
+
+start_count = -> find_not_use_sec_nummber = <
+
+find_not_use_sec_nummber 0 -> find_not_use_sec_nummber 0+ <
+find_not_use_sec_nummber 1 -> get_sec_number_right 1+| >
+find_not_use_sec_nummber 0+ -> find_not_use_sec_nummber 0+ <
+find_not_use_sec_nummber 1+ -> find_not_use_sec_nummber 1+ <
+find_not_use_sec_nummber *| -> GO_FULL_CLEAR_LEFT *| <
+find_not_use_sec_nummber * -> GO_FULL_CLEAR_LEFT * <
+
+get_sec_number_right 0+ -> mark_result 0+| >
+get_sec_number_right 1+ -> mark_result 1+| >
+get_sec_number_right = -> skip_before_mult = <
+
+mark_result 0 -> mark_result 0 >
+mark_result 1 -> mark_result 1 >
+mark_result 1+ -> mark_result 1+ >
+mark_result 0+ -> mark_result 0+ >
+mark_result = -> mark_result = >
+mark_result _ -> make_mark_result _ <
+mark_result 0- -> make_mark_result 0- <
+mark_result 1- -> make_mark_result 1- <
+
+
+make_mark_result 0 -> get_next_val_left 0- <
+make_mark_result 1 -> get_next_val_left 1- <
+
+get_next_val_left 0 -> get_next_val_left 0 <
+get_next_val_left 1 -> get_next_val_left 1 <
+get_next_val_left 0+ -> get_next_val_left 0+ <
+get_next_val_left 1+ -> get_next_val_left 1+ <
+get_next_val_left = -> get_next_val_left = <
+get_next_val_left 0+| -> get_sec_number_right 0+| >
+get_next_val_left 1+| -> get_sec_number_right 1+| >
+
+
+skip_before_mult 0+| -> skip_before_mult 0+| <
+skip_before_mult 1+| -> skip_before_mult 1+| <
+skip_before_mult 0 -> skip_before_mult 0 <
+skip_before_mult 1 -> skip_before_mult 1 <
+skip_before_mult * -> go_left_take_first_numer * <
+skip_before_mult = -> skip_before_mult = <
+
+go_left_take_first_numer 0 -> go_right_plus_0 0= >
+go_left_take_first_numer 1 -> go_right_plus_1 1= >
+go_left_take_first_numer 0= -> go_left_take_first_numer 0= <
+go_left_take_first_numer 1= -> go_left_take_first_numer 1= <
+go_left_take_first_numer *| -> clear_all_right *| >
+go_left_take_first_numer ||| -> clear_all_right ||| >
+
+clear_all_right 1= -> clear_all_right 1 >
+clear_all_right 0= -> clear_all_right 0 >
+clear_all_right 1 -> clear_all_right 1 >
+clear_all_right 0 -> clear_all_right 0 >
+clear_all_right *| -> clear_all_right *| >
+clear_all_right * -> clear_all_right * >
+clear_all_right = -> clear_all_right = >
+clear_all_right 0+| -> clear_all_right 0+ >
+clear_all_right 1+| -> clear_all_right 1+ >
+clear_all_right 0- -> clear_all_right 0 >
+clear_all_right 1- -> clear_all_right 1 >
+clear_all_right _ -> go_to_eq2 _ <
+
+go_to_eq2 0 -> go_to_eq2 0 <
+go_to_eq2 1 -> go_to_eq2 1 <
+go_to_eq2 = -> start_count = ^
+
+go_right_plus_0 0 -> go_right_plus_0 0 >
+go_right_plus_0 1 -> go_right_plus_0 1 >
+go_right_plus_0 0+ -> go_right_plus_0 0+ >
+go_right_plus_0 1+ -> go_right_plus_0 1+ >
+go_right_plus_0 0+| -> go_right_plus_0 0+| >
+go_right_plus_0 1+| -> go_right_plus_0 1+| >
+go_right_plus_0 0= -> go_right_plus_0 0= >
+go_right_plus_0 1= -> go_right_plus_0 1= >
+go_right_plus_0 = -> go_right_plus_0 = >
+go_right_plus_0 *| -> go_right_plus_0 *| >
+go_right_plus_0 * -> go_right_plus_0 * >
+go_right_plus_0 0- -> make_plus_0 0- <
+go_right_plus_0 1- -> make_plus_0 1- <
+go_right_plus_0 _ -> make_plus_0 _ <
+
+go_right_plus_1 0 -> go_right_plus_1 0 >
+go_right_plus_1 1 -> go_right_plus_1 1 >
+go_right_plus_1 0+ -> go_right_plus_1 0+ >
+go_right_plus_1 1+ -> go_right_plus_1 1+ >
+go_right_plus_1 0+| -> go_right_plus_1 0+| >
+go_right_plus_1 1+| -> go_right_plus_1 1+| >
+go_right_plus_1 0= -> go_right_plus_1 0= >
+go_right_plus_1 1= -> go_right_plus_1 1= >
+go_right_plus_1 = -> go_right_plus_1 = >
+go_right_plus_1 *| -> go_right_plus_1 *| >
+go_right_plus_1 * -> go_right_plus_1 * >
+go_right_plus_1 0- -> make_plus_1 0- <
+go_right_plus_1 1- -> make_plus_1 1- <
+go_right_plus_1 _ -> make_plus_1 _ <
+
+make_plus_0 0 -> skip_before_mult 0- <
+make_plus_0 1 -> skip_before_mult 1- <
+
+make_plus_1 0 -> skip_before_mult 1- <
+make_plus_1 1 -> add_left 0- <
+add_left 0 -> skip_before_mult 1 <
+add_left 1 -> add_left 0 <
+
+
+
+GO_FULL_CLEAR_LEFT 0 -> GO_FULL_CLEAR_LEFT 0 <
+GO_FULL_CLEAR_LEFT 1 -> GO_FULL_CLEAR_LEFT 1 <
+GO_FULL_CLEAR_LEFT *| -> gp_clear_before_eq *| >
+GO_FULL_CLEAR_LEFT ||| -> gp_clear_before_eq ||| >
+gp_clear_before_eq 0 -> gp_clear_before_eq _ >
+gp_clear_before_eq 1 -> gp_clear_before_eq _ >
+gp_clear_before_eq * -> gp_clear_before_eq _ >
+gp_clear_before_eq 1+ -> gp_clear_before_eq _ >
+gp_clear_before_eq 0+ -> gp_clear_before_eq _ >
+gp_clear_before_eq = -> delete_bad_0 _ >
+
+delete_bad_0 1 -> print_right_barrier 1 ^
+delete_bad_0 0 -> delete_bad_0 _ >
+delete_bad_0 _ -> print_right_barrier 0 ^
+
+print_right_barrier 1 -> print_right_barrier 1 >
+print_right_barrier 0 -> print_right_barrier 0 >
+print_right_barrier _ -> find_numb_start | < 
+
+find_numb_start 0 -> find_numb_start 0 <
+find_numb_start 1 -> find_numb_start 1 <
+find_numb_start _ -> take_left _ >
+take_left 0 -> print_left_zero_1 _ <
+take_left 1 -> print_left_one_1 _ <
+take_left | -> print_last_eq _ <
+print_left_zero_1 _ -> print_left_zero_1 _ <
+print_left_zero_1 0 -> now_printing_zero 0 >
+print_left_zero_1 1 -> now_printing_zero 1 >
+print_left_zero_1 *| -> now_printing_zero *| >
+print_left_zero_1 ||| -> now_printing_zero ||| >
+print_left_one_1 _ -> print_left_one_1 _ <
+print_left_one_1 0 -> now_printing_one 0 >
+print_left_one_1 1 -> now_printing_one 1 >
+print_left_one_1 *| -> now_printing_one *| >
+print_left_one_1 ||| -> now_printing_one ||| >
+now_printing_one _ -> find_numb_before_barrier 1 >
+now_printing_zero _ -> find_numb_before_barrier 0 >
+find_numb_before_barrier _ -> find_numb_before_barrier _ >
+find_numb_before_barrier 1 -> take_left 1 ^
+find_numb_before_barrier 0 -> take_left 0 ^
+find_numb_before_barrier | -> go_print_eq_left _ <
+go_print_eq_left _ -> go_print_eq_left _ <
+go_print_eq_left 0 -> now_print_eq_now 0 >
+go_print_eq_left 1 -> now_print_eq_now 1 >
+
+now_print_eq_now _ -> change_multi = <
+
+
+change_multi ||| -> replace_right_eq _ >
+replace_right_eq 1 -> replace_right_eq 1 >
+replace_right_eq 0 -> replace_right_eq 0 >
+replace_right_eq = -> go_to_start_numb _ <
+go_to_start_numb 1 -> go_to_start_numb 1 <
+go_to_start_numb 0 -> go_to_start_numb 0 <
+go_to_start_numb _ -> ac _ >
+
+s <итак,_эту_задачу_можно_свести_к_задаче_об_умножении._Что_для_этого_нужно_сдлать?_Ну_сперва_расписать_через_знак_умножения_все_числа,_идущие_от_заданного_(причем_знак_умножения_у_нас_будет_своеобразным_барьером._Это_нужно_для_следующего_этапа_задания)._Как_только_мы_выписали_все_числа,_то_начинаем_производить_операци._умножения,_заменив_блжайшее_барьерное_умножение_на_обычное._Если_в_случае_умножения_двух_чисел_мы_не_выходили_за_пределы_благодаря_символу__,_то_здесь_у_нас_таким_символом_выступил_*|._После_того,_как_мы_произвели_умножение,_записываем_число_поближе_к_левым_числам_и_производим_унможение_дальше.> -> s // ^

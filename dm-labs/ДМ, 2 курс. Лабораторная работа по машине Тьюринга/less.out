@@ -1,0 +1,49 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 > 
+s < -> find_very_right < >
+find_very_right 0 -> find_very_right 0 > 
+find_very_right 1 -> find_very_right 1 > 
+find_very_right 0+ -> find_very_right 0+ >
+find_very_right 1+ -> find_very_right 1+ >
+find_very_right < -> find_very_right < > 
+find_very_right _ -> take_val _ <
+
+take_val 0 -> plus_zero_before_plus _ <
+plus_zero_before_plus 0 -> plus_zero_before_plus 0 <
+plus_zero_before_plus 1 -> plus_zero_before_plus 1 <
+plus_zero_before_plus < -> plus_zero < <
+plus_zero 1+ -> plus_zero 1+ <
+plus_zero 0+ -> plus_zero 0+ <
+plus_zero 0 -> find_very_right 0+ >
+plus_zero 1 -> find_very_right 1+ >
+plus_zero _ -> find_very_right 0+ >
+
+take_val 1 -> plus_one_before_plus _ <
+plus_one_before_plus 0 -> plus_one_before_plus 0 <
+plus_one_before_plus 1 -> plus_one_before_plus 1 <
+plus_one_before_plus < -> plus_one < <
+plus_one 1+ -> plus_one 1+ <
+plus_one 0+ -> plus_one 0+ <
+plus_one 1 -> find_very_right 0+ >
+plus_one 0 -> go_left_fix  1+ <
+plus_one _ -> ac _ ^
+
+take_val < -> go_fix_from_plus _ <
+go_fix_from_plus 0+ -> go_fix_from_plus 0 <
+go_fix_from_plus 1+ -> go_fix_from_plus 1 <
+go_fix_from_plus 0 -> go_fix_from_plus 0 <
+go_fix_from_plus 1 -> go_fix_from_plus 1 <
+go_fix_from_plus _ -> rj _ >
+
+go_left_fix 1 -> find_very_right 0 >
+go_left_fix 0 -> go_left_fix 1 <
+go_left_fix _ -> ac _ ^
+
+
+
+
+s <модернезированное_сложение,_которое_при_необходимости_выводит_rejected_или_accepted._Если_сложение_удачное,_то_выводит_rejected.> ->  s // ^

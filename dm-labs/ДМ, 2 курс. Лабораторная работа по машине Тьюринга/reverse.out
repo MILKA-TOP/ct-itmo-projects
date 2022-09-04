@@ -1,0 +1,41 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 1 -> s 1+ >
+s 0 -> s 0+ > 
+s _ -> go_left_copy _ <
+go_left_copy 0+ -> go_print_right_0 0_ >
+go_left_copy 1+ -> go_print_right_1 1_ >
+
+go_print_right_0 0_ -> go_print_right_0 0_ >
+go_print_right_0 1_ -> go_print_right_0 1_ >
+go_print_right_0 0- -> go_print_right_0 0- >
+go_print_right_0 1- -> go_print_right_0 1- >
+go_print_right_0 _ -> go_find_plus 0- <
+
+go_print_right_1 0_ -> go_print_right_1 0_ >
+go_print_right_1 1_ -> go_print_right_1 1_ >
+go_print_right_1 0- -> go_print_right_1 0- >
+go_print_right_1 1- -> go_print_right_1 1- >
+go_print_right_1 _ -> go_find_plus 1- <
+
+go_find_plus 0- -> go_find_plus 0- <
+go_find_plus 1- -> go_find_plus 1- <
+go_find_plus 0_ -> go_find_plus 0_ <
+go_find_plus 1_ -> go_find_plus 1_ <
+go_find_plus 0+ -> go_print_right_0 0_ >
+go_find_plus 1+ -> go_print_right_1 1_ >
+go_find_plus _ -> clear_right _ >
+
+clear_right 0_ -> clear_right _ >
+clear_right 1_ -> clear_right _ >
+clear_right 0- -> clear_right 0 >
+clear_right 1- -> clear_right 1 >
+clear_right _ -> go_left_out _ <
+go_left_out 0 -> go_left_out 0 <
+go_left_out 1 -> go_left_out 1 <
+go_left_out _ -> ac _ >
+
+s <сперва_помечаем_исходное_число_плюсиками._Потом_справа_дописываем_соответствующие_цифры_со_знаком_минус,_меняя_значение_плюс_на_нейтральное._Далее_проводим_очистку_всего,_удаляя_все_нейтральные_значения,_а_отрицательные_меняя_на_обычные,_после_чего_переводим_каретку_на_начало_числа.> -> s // ^

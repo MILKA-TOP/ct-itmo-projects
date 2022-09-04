@@ -1,0 +1,151 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+
+s 0 -> draw_eq 0 ^
+s 1 -> draw_eq 1 ^
+draw_eq 0 -> draw_eq 0 >
+draw_eq 1 -> draw_eq 1 >
+draw_eq * -> draw_eq * >
+draw_eq _ -> go_left_take_numb = <
+
+go_left_take_numb 0 -> go_right_draw_0 0+ >
+go_left_take_numb 1 -> go_right_draw_0 1+ >
+go_left_take_numb * -> go_left_take_numb * <
+go_left_take_numb 0+ -> go_left_take_numb 0+ <
+go_left_take_numb 1+ -> go_left_take_numb 1+ <
+go_left_take_numb _ -> clear_right_before_eq _ >
+
+go_right_draw_0 = -> go_right_draw_0 = >
+go_right_draw_0 0 -> go_right_draw_0 0 >
+go_right_draw_0 0+ -> go_right_draw_0 0+ >
+go_right_draw_0 1+ -> go_right_draw_0 1+ >
+go_right_draw_0 * -> go_right_draw_0 * >
+go_right_draw_0 _ -> go_to_eq 0 <
+
+go_to_eq 0 -> go_to_eq 0 <
+go_to_eq 1 -> go_to_eq 1 <
+go_to_eq = -> go_left_take_numb = <
+
+clear_right_before_eq 1+ -> clear_right_before_eq 1 >
+clear_right_before_eq 0+ -> clear_right_before_eq 0 >
+clear_right_before_eq * -> clear_right_before_eq * >
+clear_right_before_eq = -> start_count = ^
+
+start_count = -> find_not_use_sec_nummber = <
+
+find_not_use_sec_nummber 0 -> find_not_use_sec_nummber 0+ <
+find_not_use_sec_nummber 1 -> get_sec_number_right 1+| >
+find_not_use_sec_nummber 0+ -> find_not_use_sec_nummber 0+ <
+find_not_use_sec_nummber 1+ -> find_not_use_sec_nummber 1+ <
+find_not_use_sec_nummber * -> GO_FULL_CLEAR_LEFT * <
+
+get_sec_number_right 0+ -> mark_result 0+| >
+get_sec_number_right 1+ -> mark_result 1+| >
+get_sec_number_right = -> skip_before_mult = <
+
+mark_result 0 -> mark_result 0 >
+mark_result 1 -> mark_result 1 >
+mark_result 1+ -> mark_result 1+ >
+mark_result 0+ -> mark_result 0+ >
+mark_result = -> mark_result = >
+mark_result _ -> make_mark_result _ <
+mark_result 0- -> make_mark_result 0- <
+mark_result 1- -> make_mark_result 1- <
+
+
+make_mark_result 0 -> get_next_val_left 0- <
+make_mark_result 1 -> get_next_val_left 1- <
+
+get_next_val_left 0 -> get_next_val_left 0 <
+get_next_val_left 1 -> get_next_val_left 1 <
+get_next_val_left 0+ -> get_next_val_left 0+ <
+get_next_val_left 1+ -> get_next_val_left 1+ <
+get_next_val_left = -> get_next_val_left = <
+get_next_val_left 0+| -> get_sec_number_right 0+| >
+get_next_val_left 1+| -> get_sec_number_right 1+| >
+
+
+skip_before_mult 0+| -> skip_before_mult 0+| <
+skip_before_mult 1+| -> skip_before_mult 1+| <
+skip_before_mult 0 -> skip_before_mult 0 <
+skip_before_mult 1 -> skip_before_mult 1 <
+skip_before_mult * -> go_left_take_first_numer * <
+skip_before_mult = -> skip_before_mult = <
+
+go_left_take_first_numer 0 -> go_right_plus_0 0= >
+go_left_take_first_numer 1 -> go_right_plus_1 1= >
+go_left_take_first_numer 0= -> go_left_take_first_numer 0= <
+go_left_take_first_numer 1= -> go_left_take_first_numer 1= <
+go_left_take_first_numer _ -> clear_all_right _ >
+
+clear_all_right 1= -> clear_all_right 1 >
+clear_all_right 0= -> clear_all_right 0 >
+clear_all_right 1 -> clear_all_right 1 >
+clear_all_right 0 -> clear_all_right 0 >
+clear_all_right * -> clear_all_right * >
+clear_all_right = -> clear_all_right = >
+clear_all_right 0+| -> clear_all_right 0+ >
+clear_all_right 1+| -> clear_all_right 1+ >
+clear_all_right 0- -> clear_all_right 0 >
+clear_all_right 1- -> clear_all_right 1 >
+clear_all_right _ -> go_to_eq2 _ <
+
+go_to_eq2 0 -> go_to_eq2 0 <
+go_to_eq2 1 -> go_to_eq2 1 <
+go_to_eq2 = -> start_count = ^
+
+go_right_plus_0 0 -> go_right_plus_0 0 >
+go_right_plus_0 1 -> go_right_plus_0 1 >
+go_right_plus_0 0+ -> go_right_plus_0 0+ >
+go_right_plus_0 1+ -> go_right_plus_0 1+ >
+go_right_plus_0 0+| -> go_right_plus_0 0+| >
+go_right_plus_0 1+| -> go_right_plus_0 1+| >
+go_right_plus_0 0= -> go_right_plus_0 0= >
+go_right_plus_0 1= -> go_right_plus_0 1= >
+go_right_plus_0 = -> go_right_plus_0 = >
+go_right_plus_0 * -> go_right_plus_0 * >
+go_right_plus_0 0- -> make_plus_0 0- <
+go_right_plus_0 1- -> make_plus_0 1- <
+go_right_plus_0 _ -> make_plus_0 _ <
+
+go_right_plus_1 0 -> go_right_plus_1 0 >
+go_right_plus_1 1 -> go_right_plus_1 1 >
+go_right_plus_1 0+ -> go_right_plus_1 0+ >
+go_right_plus_1 1+ -> go_right_plus_1 1+ >
+go_right_plus_1 0+| -> go_right_plus_1 0+| >
+go_right_plus_1 1+| -> go_right_plus_1 1+| >
+go_right_plus_1 0= -> go_right_plus_1 0= >
+go_right_plus_1 1= -> go_right_plus_1 1= >
+go_right_plus_1 = -> go_right_plus_1 = >
+go_right_plus_1 * -> go_right_plus_1 * >
+go_right_plus_1 0- -> make_plus_1 0- <
+go_right_plus_1 1- -> make_plus_1 1- <
+go_right_plus_1 _ -> make_plus_1 _ <
+
+make_plus_0 0 -> skip_before_mult 0- <
+make_plus_0 1 -> skip_before_mult 1- <
+
+make_plus_1 0 -> skip_before_mult 1- <
+make_plus_1 1 -> add_left 0- <
+add_left 0 -> skip_before_mult 1 <
+add_left 1 -> add_left 0 <
+
+
+
+GO_FULL_CLEAR_LEFT 0 -> GO_FULL_CLEAR_LEFT 0 <
+GO_FULL_CLEAR_LEFT 1 -> GO_FULL_CLEAR_LEFT 1 <
+GO_FULL_CLEAR_LEFT _ -> gp_clear_before_eq _ >
+gp_clear_before_eq 0 -> gp_clear_before_eq _ >
+gp_clear_before_eq 1 -> gp_clear_before_eq _ >
+gp_clear_before_eq * -> gp_clear_before_eq _ >
+gp_clear_before_eq 1+ -> gp_clear_before_eq _ >
+gp_clear_before_eq 0+ -> gp_clear_before_eq _ >
+gp_clear_before_eq = -> delete_bad_0 _ >
+
+delete_bad_0 1 -> ac 1 ^
+delete_bad_0 0 -> delete_bad_0 _ >
+delete_bad_0 _ -> ac 0 ^
+
+s <итак._Сперва_данная_программа_выставляет_максимальное_количество_чисел,_которое_может_возникнуть_при_умножении,_заполняя_их_0._Далее_прадставим_число_a_как_a1,_a2,_..._и_число_b_как_набор_цифр_b1,_b2,_...._Берем_цифру_bi._Отмечаем_у_числа_c_(результата_умножения)_то_число_бит,_которое_нужно_отступить_при_сложении_(как_бы_столбиком)._И_складываем_число_a_с_числом_c,_отступив_необходимое_число,_которое_ранее_было_отмечено._А_в_самом_конце_мы_удаляем_числа_a_и_b,_а_потом_при_необходимости_убираем_плохие_0_у_числа_c.> -> s // ^

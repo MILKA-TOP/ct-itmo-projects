@@ -1,0 +1,10 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> not_even 0 >
+not_even 0 -> even 0 > 
+even 0 -> not_even 0 >
+even _ -> ac _ ^
+not_even _ -> rj _ ^
+s <Чередуем_состояния._Как_только_находим_`0`,_то_переходим_в_противоположное_состояние> -> s // ^
